@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express();
-// set up brouther address row router
-app.get('/user/username',(req, res)=>{
+// add public directory
+app.use(express.static('public'));
+
+app.get('/user/:username',(req, res)=>{
     let user = req.params.username;
     res.render('index.ejs', {username : user});
 });
